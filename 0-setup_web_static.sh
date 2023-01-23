@@ -16,7 +16,7 @@ echo \
   </body>
 </html>" > /data/web_static/releases/test/index.html
 
-ln -s /data/web_static/releases/test/ -f /data/web_static/current
+ln -sf /data/web_static/releases/test/ /data/web_static/current
 chown -R ubuntu:ubuntu /data/
 
 sed -z 's/\tserver_name _;/\tserver_name _;\n\tlocation \/hbnb_static \{\n\t\talias \/data\/web_static\/current\/;\n\t\tindex index.html index.htm;\n\t\}/' -i /etc/nginx/sites-available/default
